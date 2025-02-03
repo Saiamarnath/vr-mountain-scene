@@ -15,7 +15,7 @@ document.body.appendChild(renderer.domElement);
 document.body.appendChild(VRButton.createButton(renderer));
 
 // Load Golden Hour Skybox (HDRI)
-new RGBELoader().load('/vr-mountain-scene/golden_hour.hdr', function (texture) {
+new RGBELoader().load('/Saiamarnath/vr-mountain-scene/golden_hour.hdr', function (texture) {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     scene.background = texture;
     scene.environment = texture;
@@ -23,7 +23,7 @@ new RGBELoader().load('/vr-mountain-scene/golden_hour.hdr', function (texture) {
 
 // Load RE Bike
 const gltfLoader = new GLTFLoader();
-gltfLoader.load('/vr-mountain-scene/re.glb', function (gltf) {
+gltfLoader.load('/Saiamarnath/vr-mountain-scene/re.glb', function (gltf) {
     let bike = gltf.scene;
     bike.position.set(0, -4.8, -5);
     bike.scale.set(2, 2, 2);
