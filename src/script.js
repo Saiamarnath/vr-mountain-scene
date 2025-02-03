@@ -14,24 +14,16 @@ document.body.appendChild(renderer.domElement);
 // Add VR Button
 document.body.appendChild(VRButton.createButton(renderer));
 
-// Load Golden Hour Skybox
-new RGBELoader().load('golden_hour.hdr', function (texture) {
+// Load Golden Hour Skybox (HDRI)
+new RGBELoader().load('/vr-mountain-scene/golden_hour.hdr', function (texture) {
     texture.mapping = THREE.EquirectangularReflectionMapping;
     scene.background = texture;
     scene.environment = texture;
 });
 
-// Load Mountain & Forest (Make sure the model exists)
+// Load RE Bike
 const gltfLoader = new GLTFLoader();
-gltfLoader.load('mountain_forest.glb', function (gltf) {
-    let mountain = gltf.scene;
-    mountain.position.set(0, -5, -20);
-    mountain.scale.set(10, 10, 10);
-    scene.add(mountain);
-});
-
-// Load Harley-Davidson Bike and Assign Color
-gltfLoader.load('re.glb', function (gltf) {
+gltfLoader.load('/vr-mountain-scene/re.glb', function (gltf) {
     let bike = gltf.scene;
     bike.position.set(0, -4.8, -5);
     bike.scale.set(2, 2, 2);
